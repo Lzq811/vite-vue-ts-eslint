@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
 import App from './App.vue'
-createApp(App).use(ElementPlus, { size: 'small', zIndex: 100 }).mount('#app')
+import router from './routes/index'
+import 'element-plus/dist/index.css'
+import './assets/styles/reset.less'
+createApp(App).use(router).use(ElementPlus, { size: 'small', zIndex: 100 }).mount('#app')

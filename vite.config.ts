@@ -29,6 +29,16 @@ export default defineConfig({
     port: 3005,
     host: '0.0.0.0'
   },
+  resolve: {
+    alias: {
+      // 如何 __dirname 找不到 需要 yarn add @types/node --save-dev
+      '@': path.resolve(__dirname, 'src'),
+      '@api': path.resolve(__dirname, 'src/api'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@routes': path.resolve(__dirname, 'src/routes'),
+      '@components': path.resolve(__dirname, 'src/components')
+    }
+  },
   css: {
     preprocessorOptions: {
       less: {
