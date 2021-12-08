@@ -2,13 +2,21 @@
   "name": "bao-wu-pc-web",
   "version": "0.0.0",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "dev": "cross-env vite --host 0.0.0.0 --mode dev",
+    "start": "cross-env vite --host 0.0.0.0 --mode dev",
+    "start-test": "cross-env vite --host 0.0.0.0 --mode test",
+    "start-prod": "cross-env vite --host 0.0.0.0 --mode prod",
+    "build": "cross-env vue-tsc --noEmit --skipLibCheck && vite build --mode dev",
+    "build-dev": "cross-env vue-tsc --noEmit --skipLibCheck && vite build --mode dev",
+    "build-test": "cross-env vue-tsc --noEmit --skipLibCheck && vite build --mode test",
+    "build-prod": "cross-env vue-tsc --noEmit --skipLibCheck && vite build --mode prod",
+    "serve": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^16.11.12",
+    "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.5",
+    "postcss-plugin-px2rem": "^0.8.1",
     "vue": "^3.2.23"
   },
   "devDependencies": {
@@ -16,6 +24,7 @@
     "@typescript-eslint/parser": "^5.6.0",
     "@vitejs/plugin-vue": "^1.10.2",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.4.1",
     "eslint-config-alloy": "^4.4.0",
     "eslint-config-prettier": "^8.3.0",

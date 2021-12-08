@@ -1,5 +1,9 @@
 node_modules
 .DS_Store
 dist
+buildDemo
+build
 dist-ssr
 *.local
+*.zip
+*.rar
