@@ -1,0 +1,8 @@
+/build/
+/config/
+/dist/
+/*.js
+/*.zip
+/*.rar
+/node_modules/
+/test/unit/coverage/
