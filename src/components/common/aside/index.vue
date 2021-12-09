@@ -1,10 +1,14 @@
 <template>
-  <el-aside width="200px" class="aside-com">
+  <el-aside :width="asidewidth" class="aside-com">
+    <div class="logo-box">LOGO</div>
+    <el-button type="primary" @click="showCollapse" :icon="isCollapse ? Fold : Expand"></el-button>
     <el-menu
+      class="menus-box"
       active-text-color="#00A2D8"
       text-color="#fff"
       background-color="rgba(0,0,0,0)"
       :default-openeds="['1', '3']"
+      :collapse="isCollapse"
     >
       <el-sub-menu v-for="item in Menus" :key="item.order" :index="item.order">
         <template #title>
@@ -22,8 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Location } from '@element-plus/icons'
-import { ref } from 'vue'
+import { Location, Fold, Expand } from '@element-plus/icons'
+import { onMounted, ref } from 'vue'
 
 const Menus = ref([
   {
@@ -54,11 +58,40 @@ const Menus = ref([
     ]
   }
 ])
+const isCollapse = ref(false)
+const asidewidth = ref('180px')
+
+onMounted(() => {})
+
+const handleOpen = (key: any, keyPath: any): void => {
+  console.log(key, keyPath)
+}
+const handleClose = (key: any, keyPath: any): void => {
+  console.log(key, keyPath)
+}
+const showCollapse = (): void => {
+  isCollapse.value = !isCollapse.value
+  asidewidth.value = !isCollapse.value ? '180px' : '60px'
+}
 </script>
 
 <style lang="less">
 .aside-com {
   height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.25s linear;
   background-color: #1f2f48;
+  .logo-box {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    line-height: 60px;
+  }
+  .menus-box {
+    border: none;
+    transition: all 0.2s linear;
+  }
 }
 </style>
