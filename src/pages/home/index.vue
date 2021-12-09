@@ -3,7 +3,7 @@
     <Aside></Aside>
     <el-container>
       <el-header class="head-com"><Head></Head></el-header>
-      <el-main> 主体内容 </el-main>
+      <el-main><div class="main-box">主体内容</div></el-main>
     </el-container>
   </el-container>
 </template>
@@ -15,6 +15,10 @@ import Head from '@components/common/head/index.vue'
 <style lang="less" scoped>
 .home-page {
   height: 100%;
+}
+.main-box {
+  font-size: 60px;
+  color: red;
 }
 .head-com {
   width: 100%;
