@@ -1,28 +1,19 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import * as RouteNames from './routesname'
+import Base from './base'
+import SendReceiveManage from './send-receive-manage'
+import UserControl from './user-control'
 
-interface RoutesItem {
-  path: string
-  component: any
-  name?: string
-  redirect?: string
-}
-
-const routes: Array<RoutesItem> = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home',
-    component: () => import('@pages/home/index.vue')
-  },
-  {
-    path: '/default',
-    name: RouteNames.HOME,
-    component: () => import('@pages/home/index.vue')
+    redirect: '/home/system-manage'
   },
   {
     path: '/home',
-    name: RouteNames.HOME,
-    component: () => import('@pages/home/index.vue')
+    redirect: '/home/system-manage',
+    component: () => import('@pages/home/index.vue'),
+    children: [...Base, ...SendReceiveManage, ...UserControl]
   },
   {
     path: '/login',
@@ -37,12 +28,13 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from) => {
+/* router.beforeEach((to, from) => {
+  console.log(to, from)
   const { path: toPath } = to
   const { path: fromPath } = from
   if (toPath === fromPath) {
     return false
   }
-})
+}) */
 
 export default router

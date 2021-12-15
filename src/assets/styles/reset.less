@@ -217,3 +217,23 @@ template {
   height: 100%;
   box-sizing: border-box;
 }
+// 修改滚动条样式
+div::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+div::-webkit-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
+}
+div::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+  border-radius: 4px;
+}
+div::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+div::-webkit-scrollbar-corner {
+  background: #179a16;
+}

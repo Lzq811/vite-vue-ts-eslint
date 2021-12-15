@@ -34,6 +34,7 @@ export default defineConfig({
       // 如何 __dirname 找不到 需要 yarn add @types/node --save-dev
       '@': path.resolve(__dirname, 'src'),
       '@api': path.resolve(__dirname, 'src/api'),
+      '@ts': path.resolve(__dirname, 'src/ts'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@routes': path.resolve(__dirname, 'src/routes'),
       '@components': path.resolve(__dirname, 'src/components')
