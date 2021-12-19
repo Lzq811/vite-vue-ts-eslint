@@ -75,16 +75,16 @@ const props = defineProps({
     default: () => ({})
   },
   formItems: {
-    type: Array as PropType<IterFormItems>,
+    type: Array as PropType<any>,
     default: () => []
   },
   editBtns: {
-    type: Array as PropType<IterEditBtnsItems>,
+    type: Array as PropType<any>,
     default: () => []
   }
 })
 const emit = defineEmits(['change'])
-const FormValue: IterFormData = ref({ ...props.formData })
+const FormValue: any = ref({ ...props.formData })
 
 // watch(
 //   FormValue,

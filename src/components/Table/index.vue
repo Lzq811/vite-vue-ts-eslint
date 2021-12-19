@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, PropType } from 'vue'
+import { PropType } from 'vue'
 
 const props = defineProps({
   tableData: {
